@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/UI/pages/signInPage.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -104,7 +105,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   SizedBox(height: currentIndex == 2 ? 38 : 50),
 
                   //check button getting started
-
                   //
                   currentIndex == 2
                       ? Column(
@@ -138,7 +138,14 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                               width: double.infinity,
                               height: 24,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => const SignInPage(),
+                                    ),
+                                  );
+                                },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),

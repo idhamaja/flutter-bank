@@ -25,6 +25,7 @@ TextStyle greyTextStyle = GoogleFonts.poppins(
 
 TextStyle blueTextStyle = GoogleFonts.poppins(
   color: blueColor,
+  fontWeight: FontWeight.w600,
 );
 
 TextStyle greenTextStyle = GoogleFonts.poppins(
