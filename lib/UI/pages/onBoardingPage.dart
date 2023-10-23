@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bank/UI/pages/signInPage.dart';
+import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class OnBoardingPage extends StatefulWidget {
@@ -109,52 +109,70 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                   currentIndex == 2
                       ? Column(
                           children: [
-                            SizedBox(
-                              width: double.infinity,
-                              height: 50,
-                              child: TextButton(
-                                onPressed: () {
-                                  carouselController.nextPage();
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: buttonBlueColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      56,
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Get Started',
-                                  style: whiteTextStyle.copyWith(fontSize: 16),
-                                ),
-                              ),
+                            // SizedBox(
+                            //   width: double.infinity,
+                            //   height: 50,
+                            //   child: TextButton(
+                            //     onPressed: () {
+                            //       carouselController.nextPage();
+                            //     },
+                            //     style: TextButton.styleFrom(
+                            //       backgroundColor: buttonBlueColor,
+                            //       shape: RoundedRectangleBorder(
+                            //         borderRadius: BorderRadius.circular(
+                            //           56,
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     child: Text(
+                            //       'Get Started',
+                            //       style: whiteTextStyle.copyWith(fontSize: 16),
+                            //     ),
+                            //   ),
+                            // ),
+                            CustomFilledButton(
+                              title: 'Get Started',
+                              onPressed: () {},
                             ),
 
                             const SizedBox(height: 20),
 
                             //SIGN_IN BUTTON
-                            SizedBox(
-                              width: double.infinity,
-                              height: 24,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const SignInPage(),
-                                    ),
-                                  );
-                                },
-                                style: TextButton.styleFrom(
-                                  padding: EdgeInsets.zero,
-                                ),
-                                child: Text(
-                                  'Sign In',
-                                  style: greyTextStyle.copyWith(fontSize: 16),
-                                ),
-                              ),
-                            ),
+                            // SizedBox(
+                            //   width: double.infinity,
+                            //   height: 24,
+                            //   child: TextButton(
+                            //     onPressed: () {
+                            //       Navigator.push(
+                            //         context,
+                            //         MaterialPageRoute(
+                            //           builder: (context) => const SignInPage(),
+                            //         ),
+                            //       );
+                            //     },
+                            //     style: TextButton.styleFrom(
+                            //       padding: EdgeInsets.zero,
+                            //     ),
+                            //     child: Text(
+                            //       'Sign In',
+                            //       style: greyTextStyle.copyWith(fontSize: 16),
+                            //     ),
+                            //   ),
+                            // ),
+
+                            //
+                            CustomTextButton(
+                              title: 'Sign In',
+                              onPressed: () {
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => const SignInPage(),
+                                //   ),
+                                // );
+                                Navigator.pushNamed(context, '/signIn');
+                              },
+                            )
                           ],
                         )
                       : Row(
@@ -199,26 +217,35 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
 
                             //
                             const Spacer(),
-                            SizedBox(
+                            // SizedBox(
+                            //   width: 150,
+                            //   height: 50,
+                            //   child: TextButton(
+                            //     onPressed: () {
+                            //       carouselController.nextPage();
+                            //     },
+                            //     style: TextButton.styleFrom(
+                            //       backgroundColor: buttonBlueColor,
+                            //       shape: RoundedRectangleBorder(
+                            //         borderRadius: BorderRadius.circular(
+                            //           56,
+                            //         ),
+                            //       ),
+                            //     ),
+                            //     child: Text(
+                            //       'Continue',
+                            //       style: whiteTextStyle.copyWith(fontSize: 16),
+                            //     ),
+                            //   ),
+                            // ),
+
+                            //
+                            CustomFilledButton(
                               width: 150,
-                              height: 50,
-                              child: TextButton(
-                                onPressed: () {
-                                  carouselController.nextPage();
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor: buttonBlueColor,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                      56,
-                                    ),
-                                  ),
-                                ),
-                                child: Text(
-                                  'Continue',
-                                  style: whiteTextStyle.copyWith(fontSize: 16),
-                                ),
-                              ),
+                              title: 'Continue',
+                              onPressed: () {
+                                carouselController.nextPage();
+                              },
                             )
                           ],
                         )

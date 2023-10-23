@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_bank/UI/pages/onBoardingPage.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class SplashPage extends StatefulWidget {
@@ -18,12 +17,13 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
 
     Timer(const Duration(seconds: 2), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const OnBoardingPage(),
-        ),
-      );
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) => const OnBoardingPage(),
+      //   ),
+      // );
+      Navigator.pushNamed(context, '/onBoarding');
     });
   }
 

@@ -3,8 +3,8 @@ import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
-class SignInPage extends StatelessWidget {
-  const SignInPage({super.key});
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
