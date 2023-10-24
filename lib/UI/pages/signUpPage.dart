@@ -31,7 +31,7 @@ class SignUpPage extends StatelessWidget {
 
           //
           Text(
-            'Sign In &\nGrow Your Finance',
+            'Join Us to Unlock\nYour Growth.',
             style: blackTextStyle.copyWith(
               fontSize: 20,
               fontWeight: semiBold,
@@ -53,7 +53,7 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                //NOTE_EMAIL_INPUT
+                //NOTE_FULL_NAME_INPUT
                 // Column(
                 //   crossAxisAlignment: CrossAxisAlignment.start,
                 //   children: [
@@ -74,6 +74,13 @@ class SignUpPage extends StatelessWidget {
                 //     ),
                 //   ],
                 // ),
+
+                //NOTE_FULL_NAME_INPUT
+                const CustomFormField(
+                  title: 'Full Name',
+                ),
+
+                const SizedBox(height: 16),
 
                 //NOTE_EMAIL_INPUT
                 const CustomFormField(
@@ -111,17 +118,6 @@ class SignUpPage extends StatelessWidget {
                   obscureText: true,
                 ),
 
-                const SizedBox(height: 8),
-
-                //
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    'Forgot Password',
-                    style: blueTextStyle,
-                  ),
-                ),
-
                 const SizedBox(height: 30),
 
                 //BUTTON_SIGN_IN
@@ -147,14 +143,16 @@ class SignUpPage extends StatelessWidget {
 
                 //
                 CustomFilledButton(
-                  title: 'Sign In',
-                  onPressed: () {},
+                  title: 'Continue',
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/signUp-setProfile');
+                  },
                 ),
               ],
             ),
           ),
 
-          const SizedBox(height: 50),
+          const SizedBox(height: 20),
 
           //CREATE_NEW_ACCOUNT
           // SizedBox(
@@ -173,8 +171,10 @@ class SignUpPage extends StatelessWidget {
           // ),
 
           CustomTextButton(
-            title: 'Create New Account',
-            onPressed: () {},
+            title: 'Sign In',
+            onPressed: () {
+              Navigator.pushNamed(context, '/signIn');
+            },
           ),
 
           const SizedBox(height: 50),

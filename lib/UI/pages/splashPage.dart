@@ -23,7 +23,8 @@ class _SplashPageState extends State<SplashPage> {
       //     builder: (context) => const OnBoardingPage(),
       //   ),
       // );
-      Navigator.pushNamed(context, '/onBoarding');
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/onBoarding', (route) => false);
     });
   }
 

@@ -63,7 +63,7 @@ class CustomTextButton extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: greyTextStyle.copyWith(fontSize: 16),
+          style: greyTextStyle.copyWith(fontSize: 18),
         ),
       ),
     );
