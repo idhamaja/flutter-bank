@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
-import 'package:flutter_bank/UI/widgets/forms.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class SignUpSetKtpPage extends StatelessWidget {
