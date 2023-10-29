@@ -490,7 +490,7 @@ class HomePage extends StatelessWidget {
               HomeTipsItems(
                 imgUrl: 'assets/img_tips4.png',
                 title: 'Save more penny buy this instead',
-                url: 'https://www.google.com/',
+                url: 'https://www.mywebsitedualipa.com/',
               ),
             ],
           )

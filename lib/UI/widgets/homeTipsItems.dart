@@ -19,7 +19,7 @@ class HomeTipsItems extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         if (await launchUrlString(url)) {
-          launchUrlString(url);
+          (url);
         } else {
           throw 'Could not launch $url';
         }
