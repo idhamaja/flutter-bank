@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/UI/widgets/homeLatestTransactionItems.dart';
+import 'package:flutter_bank/UI/widgets/homeServiceItems.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class HomePage extends StatelessWidget {
@@ -90,6 +92,9 @@ class HomePage extends StatelessWidget {
           //
           buildProfile(),
           buildWalletCard(),
+          buildLevel(),
+          buildServices(),
+          buildLatestTransaction()
         ],
       ),
     );
@@ -211,6 +216,178 @@ class HomePage extends StatelessWidget {
             style: whiteTextStyle.copyWith(
               fontSize: 24,
               fontWeight: bold,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //level/Progress
+  Widget buildLevel() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      padding: const EdgeInsets.all(22),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: whiteColor,
+      ),
+      child: Column(
+        children: [
+          Row(
+            children: [
+              Text(
+                'Level 1',
+                style: blackTextStyle.copyWith(
+                  fontWeight: medium,
+                ),
+              ),
+              const Spacer(),
+              Text(
+                '55% ',
+                style: greenTextStyle.copyWith(
+                  fontWeight: semiBold,
+                ),
+              ),
+              Text(
+                'of Rp. 20.000',
+                style: blackTextStyle.copyWith(
+                  fontWeight: bold,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(55),
+            child: LinearProgressIndicator(
+              value: 0.55,
+              minHeight: 6,
+              valueColor: AlwaysStoppedAnimation(
+                greenLineColor,
+              ),
+              backgroundColor: lightBackgroundColor,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  //Services
+  Widget buildServices() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Do Something',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(height: 14),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              HomeServiceItem(
+                iconUrl: 'assets/ic_topup.png',
+                title: 'Top Up',
+                onTap: () {},
+              ),
+
+              //
+              HomeServiceItem(
+                iconUrl: 'assets/ic_send.png',
+                title: 'Send',
+                onTap: () {},
+              ),
+
+              //
+              HomeServiceItem(
+                iconUrl: 'assets/ic_withdraw.png',
+                title: 'Withdraw',
+                onTap: () {},
+              ),
+
+              //
+              HomeServiceItem(
+                iconUrl: 'assets/ic_more.png',
+                title: 'More',
+                onTap: () {},
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  //latest_transaction
+  Widget buildLatestTransaction() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Latest Transaction',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(height: 14),
+          Container(
+            padding: const EdgeInsets.all(22),
+            margin: const EdgeInsets.only(top: 14),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              color: whiteColor,
+            ),
+            child: const Column(
+              children: [
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cat1.png',
+                  title: 'Top Up',
+                  time: 'Yesterday',
+                  value: '+ 450.000',
+                ),
+
+                //
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cat2.png',
+                  title: 'Cashback',
+                  time: 'Sept 11',
+                  value: '+ 22.000',
+                ),
+
+                //
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cat3.png',
+                  title: 'Withdraw',
+                  time: 'Sept 2',
+                  value: '- 5.000',
+                ),
+
+                //
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cat4.png',
+                  title: 'Transfer',
+                  time: 'Aug 27',
+                  value: '- 123.500',
+                ),
+
+                //
+                HomeLatestTransaction(
+                  iconUrl: 'assets/ic_transaction_cat5.png',
+                  title: 'Electric',
+                  time: 'Feb 18',
+                  value: '- 12.300.000',
+                ),
+              ],
             ),
           ),
         ],
