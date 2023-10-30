@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/pages/home/homePage.dart';
 import 'package:flutter_bank/UI/pages/onBoardingPage.dart';
+import 'package:flutter_bank/UI/pages/profile/profilePage.dart';
 import 'package:flutter_bank/UI/pages/signInPage.dart';
 import 'package:flutter_bank/UI/pages/signUpPage.dart';
 import 'package:flutter_bank/UI/pages/signUp_Set_ProfilePage.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
         '/signUp-setKtp': (context) => const SignUpSetKtpPage(),
         '/signUp-success': (context) => const SignUpSuccessPage(),
         '/home': (context) => const HomePage(),
+        '/profile': (context) => const ProfilePage(),
       },
     );
   }
