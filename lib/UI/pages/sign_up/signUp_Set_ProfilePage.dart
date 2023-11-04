@@ -9,7 +9,7 @@ class SignUpSetProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightBackgroundColor,
+      // backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
@@ -94,7 +94,7 @@ class SignUpSetProfilePage extends StatelessWidget {
                 const SizedBox(height: 30),
 
                 //PIN_NUMBER
-                CustomFormField(
+                const CustomFormField(
                   title: 'Set PIN (6 digit number)',
                   obscureText: true,
                 ),

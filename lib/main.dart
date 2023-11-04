@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/pages/home/homePage.dart';
 import 'package:flutter_bank/UI/pages/onBoardingPage.dart';
+import 'package:flutter_bank/UI/pages/pin_number/pinPage.dart';
 import 'package:flutter_bank/UI/pages/profile/profilePage.dart';
-import 'package:flutter_bank/UI/pages/signInPage.dart';
-import 'package:flutter_bank/UI/pages/signUpPage.dart';
-import 'package:flutter_bank/UI/pages/signUp_Set_ProfilePage.dart';
-import 'package:flutter_bank/UI/pages/signUp_Set_ktpPage..dart';
-import 'package:flutter_bank/UI/pages/signUp_Success_Page.dart';
+import 'package:flutter_bank/UI/pages/sign_in/signInPage.dart';
+import 'package:flutter_bank/UI/pages/sign_up/signUpPage.dart';
+import 'package:flutter_bank/UI/pages/sign_up/signUp_Set_ProfilePage.dart';
+import 'package:flutter_bank/UI/pages/sign_up/signUp_Set_ktpPage..dart';
+import 'package:flutter_bank/UI/pages/sign_up/signUp_Success_Page.dart';
 import 'package:flutter_bank/UI/pages/splashPage.dart';
+import 'package:flutter_bank/shared/themes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -18,6 +20,21 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: lightBackgroundColor,
+        appBarTheme: AppBarTheme(
+          backgroundColor: lightBackgroundColor,
+          elevation: 0,
+          centerTitle: true,
+          iconTheme: IconThemeData(
+            color: blackColor,
+          ),
+          titleTextStyle: blackTextStyle.copyWith(
+            fontSize: 20,
+            fontWeight: semiBold,
+          ),
+        ),
+      ),
       // home: SplashPage(),
       routes: {
         '/': (context) => const SplashPage(),
@@ -29,6 +46,7 @@ class MyApp extends StatelessWidget {
         '/signUp-success': (context) => const SignUpSuccessPage(),
         '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
+        '/pin': (context) => const PinPage(),
       },
     );
   }
