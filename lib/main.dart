@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/pages/home/homePage.dart';
 import 'package:flutter_bank/UI/pages/onBoardingPage.dart';
 import 'package:flutter_bank/UI/pages/pin_number/pinPage.dart';
+import 'package:flutter_bank/UI/pages/profile/profileEditPage.dart';
+import 'package:flutter_bank/UI/pages/profile/profileEditPinPage.dart';
+import 'package:flutter_bank/UI/pages/profile/profileEditSuccessfullyPage.dart';
 import 'package:flutter_bank/UI/pages/profile/profilePage.dart';
 import 'package:flutter_bank/UI/pages/sign_in/signInPage.dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUpPage.dart';
@@ -47,6 +50,10 @@ class MyApp extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/profile': (context) => const ProfilePage(),
         '/pin': (context) => const PinPage(),
+        '/profile-edit': (context) => const ProfileEditPage(),
+        '/profile-edit-pin': (context) => const ProfileEditPinPage(),
+        '/profile-edit-success': (context) =>
+            const ProfileEditSuccessfullyPage(),
       },
     );
   }
