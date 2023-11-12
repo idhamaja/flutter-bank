@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/shared/themes.dart';
+import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class TopUpAmountPage extends StatefulWidget {
   const TopUpAmountPage({super.key});
@@ -13,6 +15,25 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
   final TextEditingController amountController = TextEditingController(
     text: '0',
   );
+
+  @override
+  void initState() {
+    super.initState();
+    amountController.addListener(() {
+      final text = amountController.text;
+      amountController.value = amountController.value.copyWith(
+        text: NumberFormat.currency(
+          locale: 'id',
+          decimalDigits: 0,
+          symbol: '',
+        ).format(
+          int.parse(
+            text.replaceAll('.', ''),
+          ),
+        ),
+      );
+    });
+  }
 
   addAmount(String number) {
     if (amountController.text == '0') {
@@ -72,7 +93,7 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
                 ),
                 decoration: InputDecoration(
                   prefixIcon: Text(
-                    'Rp.',
+                    'Rp. ',
                     style: whiteTextStyle.copyWith(
                       fontSize: 36,
                       fontWeight: medium,
@@ -208,6 +229,9 @@ class _TopUpAmountPageState extends State<TopUpAmountPage> {
             title: 'Checkout Now',
             onPressed: () async {
               if (await Navigator.pushNamed(context, '/pin') == true) {
+                //
+                await launch('https://demo.midtrans.com/');
+
                 Navigator.pushNamedAndRemoveUntil(
                     context, '/topup-success', (route) => false);
               }
