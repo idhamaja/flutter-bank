@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
 import 'package:flutter_bank/UI/widgets/transferRecentUserItems.dart';
+import 'package:flutter_bank/UI/widgets/transferResultItems.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class TransferPage extends StatelessWidget {
@@ -30,7 +32,19 @@ class TransferPage extends StatelessWidget {
             title: 'by username',
             isShowTitle: false,
           ),
-          buildRecentUsers(),
+          // buildRecentUsers(),
+          buildResult(),
+
+          const SizedBox(height: 275),
+
+          CustomFilledButton(
+            title: 'Continue',
+            onPressed: () {
+              Navigator.pushNamed(context, '/transfer-amount');
+            },
+          ),
+
+          const SizedBox(height: 50),
         ],
       ),
     );
@@ -53,7 +67,7 @@ class TransferPage extends StatelessWidget {
           const SizedBox(height: 14),
           const TransferRecentUserItems(
             imageUrl: 'assets/img_friend1.png',
-            name: 'Munaroh',
+            name: 'Munaroh Nash',
             username: 'moena',
             isVerified: true,
           ),
@@ -61,7 +75,7 @@ class TransferPage extends StatelessWidget {
           //
           const TransferRecentUserItems(
             imageUrl: 'assets/img_friend2.png',
-            name: 'Ncum',
+            name: 'Ncum Wright',
             username: 'ncoem12',
           ),
 
@@ -71,6 +85,46 @@ class TransferPage extends StatelessWidget {
             name: 'Ujang Jackson',
             username: 'djangJ',
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget buildResult() {
+    return Container(
+      margin: const EdgeInsets.only(top: 40),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Result',
+            style: blackTextStyle.copyWith(
+              fontSize: 16,
+              fontWeight: semiBold,
+            ),
+          ),
+          const SizedBox(height: 14),
+          const Wrap(
+            spacing: 17,
+            runSpacing: 17,
+            children: [
+              TransferResultUserItems(
+                imageUrl: 'assets/img_friend1.png',
+                name: 'Munaroh Nash',
+                username: 'moena',
+                isVerified: true,
+              ),
+
+              //
+              TransferResultUserItems(
+                imageUrl: 'assets/img_friend2.png',
+                name: 'Nyai Johanson',
+                username: 'NyJohan',
+                isVerified: true,
+                isSelected: true,
+              ),
+            ],
+          )
         ],
       ),
     );
