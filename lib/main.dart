@@ -8,6 +8,7 @@ import 'package:flutter_bank/UI/pages/profile/profileEditSuccessfullyPage.dart';
 import 'package:flutter_bank/UI/pages/profile/profilePage.dart';
 import 'package:flutter_bank/UI/pages/provider/dataPackagePage.dart';
 import 'package:flutter_bank/UI/pages/provider/dataProviderPage.dart';
+import 'package:flutter_bank/UI/pages/provider/dataSuccessfullyPage.dart';
 import 'package:flutter_bank/UI/pages/sign_in/signInPage.dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUpPage.dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUp_Set_ProfilePage.dart';
@@ -70,6 +71,7 @@ class MyApp extends StatelessWidget {
         '/transfer-success': (context) => const TransferSuccessfullyPage(),
         '/data-provider': (context) => const DataProviderPage(),
         '/data-package': (context) => const DataPackagePage(),
+        '/data-success': (context) => const DataSuccessfullyPage(),
       },
     );
   }
