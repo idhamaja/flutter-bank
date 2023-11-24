@@ -1,15 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
+import 'package:flutter_bank/shared/sharedMethods.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final nameContrl = TextEditingController(text: '');
+  final emailContrl = TextEditingController(text: '');
+  final passwordContrl = TextEditingController(text: '');
+
+  //funtValidate
+  bool validate() {
+    if (nameContrl.text.isEmpty ||
+        emailContrl.text.isEmpty ||
+        passwordContrl.text.isEmpty) {
+      return false;
+    }
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: lightBackgroundColor,
       body: ListView(
         padding: const EdgeInsets.symmetric(horizontal: 24),
         children: [
@@ -54,98 +74,40 @@ class SignUpPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //NOTE_FULL_NAME_INPUT
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     Text(
-                //       'Email Address',
-                //       style: blackTextStyle.copyWith(fontWeight: medium),
-                //     ),
-                //     //
-                //     const SizedBox(height: 8),
-                //     //TEXT_FORM_FIELD
-                //     TextFormField(
-                //       decoration: InputDecoration(
-                //         border: OutlineInputBorder(
-                //           borderRadius: BorderRadius.circular(14),
-                //         ),
-                //         contentPadding: const EdgeInsets.all(12),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-
-                //NOTE_FULL_NAME_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Full Name',
+                  controller: nameContrl,
                 ),
 
                 const SizedBox(height: 16),
 
                 //NOTE_EMAIL_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Email Address',
+                  controller: emailContrl,
                 ),
 
                 const SizedBox(height: 16),
 
                 //NOTE_PASSWORD_INPUT
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     Text(
-                //       'Password',
-                //       style: blackTextStyle.copyWith(fontWeight: medium),
-                //     ),
-                //     //
-                //     const SizedBox(height: 8),
-                //     //TEXT_FORM_FIELD
-                //     TextFormField(
-                //       obscureText: true,
-                //       decoration: InputDecoration(
-                //         border: OutlineInputBorder(
-                //           borderRadius: BorderRadius.circular(14),
-                //         ),
-                //         contentPadding: const EdgeInsets.all(12),
-                //       ),
-                //     ),
-                //   ],
-                // ),
-
-                //NOTE_PASSWORD_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Password',
                   obscureText: true,
+                  controller: passwordContrl,
                 ),
 
                 const SizedBox(height: 30),
-
-                //BUTTON_SIGN_IN
-                // SizedBox(
-                //   width: double.infinity,
-                //   height: 50,
-                //   child: TextButton(
-                //     onPressed: () {},
-                //     style: TextButton.styleFrom(
-                //       backgroundColor: buttonBlueColor,
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(
-                //           56,
-                //         ),
-                //       ),
-                //     ),
-                //     child: Text(
-                //       'Sign In',
-                //       style: whiteTextStyle.copyWith(fontSize: 16),
-                //     ),
-                //   ),
-                // ),
 
                 //
                 CustomFilledButton(
                   title: 'Continue',
                   onPressed: () {
-                    Navigator.pushNamed(context, '/signUp-setProfile');
+                    if (validate()) {
+                      Navigator.pushNamed(context, '/signUp-setProfile');
+                    } else {
+                      showCustomSnackbar(
+                          context, 'Semua field harus diisi !!!');
+                    }
                   },
                 ),
               ],
@@ -153,22 +115,6 @@ class SignUpPage extends StatelessWidget {
           ),
 
           const SizedBox(height: 20),
-
-          //CREATE_NEW_ACCOUNT
-          // SizedBox(
-          //   width: double.infinity,
-          //   height: 24,
-          //   child: TextButton(
-          //     onPressed: () {},
-          //     style: TextButton.styleFrom(
-          //       padding: EdgeInsets.zero,
-          //     ),
-          //     child: Text(
-          //       'Create New Account',
-          //       style: greyTextStyle.copyWith(fontSize: 16),
-          //     ),
-          //   ),
-          // ),
 
           CustomTextButton(
             title: 'Sign In',
