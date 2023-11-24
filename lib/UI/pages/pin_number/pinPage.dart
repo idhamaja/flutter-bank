@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
+import 'package:flutter_bank/shared/sharedMethods.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class PinPage extends StatefulWidget {
@@ -20,9 +21,15 @@ class _PinPageState extends State<PinPage> {
         pinController.text = pinController.text + number;
       });
     }
-    // print(pinController.text);
-    if (pinController.text == '123456') {
-      Navigator.pop(context, true);
+
+    //panjangPin=6
+    if (pinController.text.length == 6) {
+      if (pinController.text == '123456') {
+        Navigator.pop(context, true);
+      } else {
+        showCustomSnackbar(
+            context, 'PIN yang anda masukkan salah. Silakan coba lagi.');
+      }
     }
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/dataProviderItems.dart';
+import 'package:flutter_bank/shared/sharedMethods.dart';
 import 'package:flutter_bank/shared/themes.dart';
 
 class DataProviderPage extends StatelessWidget {
@@ -47,7 +48,7 @@ class DataProviderPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 2),
                   Text(
-                    'Balance: Rp. 180.000.000',
+                    'Balance: ${formatCurrency(180000000)}',
                     style: greyTextStyle.copyWith(
                       fontSize: 12,
                     ),
