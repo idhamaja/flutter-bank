@@ -11,7 +11,6 @@ import 'package:flutter_bank/UI/pages/provider/dataProviderPage.dart';
 import 'package:flutter_bank/UI/pages/provider/dataSuccessfullyPage.dart';
 import 'package:flutter_bank/UI/pages/sign_in/signInPage.dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUpPage.dart';
-import 'package:flutter_bank/UI/pages/sign_up/signUp_Set_ktpPage..dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUp_Success_Page.dart';
 import 'package:flutter_bank/UI/pages/splashPage.dart';
 import 'package:flutter_bank/UI/pages/topUp/topUpAmountPage.dart';
@@ -60,7 +59,6 @@ class MyApp extends StatelessWidget {
           '/onBoarding': (context) => const OnBoardingPage(),
           '/signIn': (context) => const SignInPage(),
           '/signUp': (context) => const SignUpPage(),
-          '/signUp-setKtp': (context) => const SignUpSetKtpPage(),
           '/signUp-success': (context) => const SignUpSuccessPage(),
           '/home': (context) => const HomePage(),
           '/profile': (context) => const ProfilePage(),
