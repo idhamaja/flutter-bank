@@ -1,4 +1,6 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bank/models/signIn/signInFormModel.dart';
+import 'package:flutter_bank/models/signUp/signUpFormModel.dart';
 
 abstract class AuthEvent extends Equatable {
   const AuthEvent();
@@ -13,4 +15,21 @@ class AuthCheckEmail extends AuthEvent {
 
   @override
   List<Object> get props => [email];
+}
+
+class AuthRegister extends AuthEvent {
+  final SignUpFormModel data;
+  const AuthRegister(this.data);
+
+  @override
+  List<Object> get props => [data];
+}
+
+//event for Login
+class AuthLogin extends AuthEvent {
+  final SignInFormModel data;
+  const AuthLogin(this.data);
+
+  @override
+  List<Object> get props => [data];
 }
