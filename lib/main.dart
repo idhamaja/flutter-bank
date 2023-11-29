@@ -20,6 +20,7 @@ import 'package:flutter_bank/UI/pages/transfer_send/transferAmountPage.dart';
 import 'package:flutter_bank/UI/pages/transfer_send/transferPage.dart';
 import 'package:flutter_bank/UI/pages/transfer_send/transferSuccessfullyPage.dart';
 import 'package:flutter_bank/bloc/auth/authBloc.dart';
+import 'package:flutter_bank/bloc/auth/authEvent.dart';
 import 'package:flutter_bank/shared/themes.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => AuthBloc(),
+          create: (context) => AuthBloc()..add(AuthGetCurrentUser()),
         ),
       ],
       child: MaterialApp(

@@ -1,5 +1,7 @@
 import 'package:flutter_bank/bloc/auth/authEvent.dart';
 import 'package:flutter_bank/bloc/auth/authState.dart';
+import 'package:flutter_bank/models/signIn/signInFormModel.dart';
+import 'package:flutter_bank/models/userModel.dart';
 import 'package:flutter_bank/services/authService.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -50,6 +52,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           emit(AuthFailed(
             e.toString(),
           ));
+        }
+      }
+
+      if (event is AuthGetCurrentUser) {
+        try {
+          emit(AuthLoading());
+          final SignInFormModel data =
+              await AuthService().getCredentialFromLocal();
+          final UserModel user = await AuthService().login(data);
+
+          //jika berhasil
+          emit(AuthSuccess(user));
+        } catch (e) {
+          emit(
+            AuthFailed(e.toString()),
+          );
         }
       }
     });
