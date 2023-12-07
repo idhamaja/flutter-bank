@@ -93,7 +93,7 @@ class AuthService {
     }
   }
 
-  //mengambil data/credential dari local
+  //mengambil data atau credential dari local
   Future<SignInFormModel> getCredentialFromLocal() async {
     try {
       const storage = FlutterSecureStorage();

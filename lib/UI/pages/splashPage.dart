@@ -18,6 +18,7 @@ class SplashPage extends StatelessWidget {
                 context, '/home', (route) => false);
           }
 
+          //Jika state Failed
           if (state is AuthFailed) {
             Navigator.pushNamedAndRemoveUntil(
                 context, '/onBoarding', (route) => false);
