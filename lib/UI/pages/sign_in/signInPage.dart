@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
+import 'package:flutter_bank/UI/widgets/formsPassword.dart';
 import 'package:flutter_bank/bloc/auth/authBloc.dart';
 import 'package:flutter_bank/bloc/auth/authEvent.dart';
 import 'package:flutter_bank/bloc/auth/authState.dart';
@@ -148,9 +149,8 @@ class _SignInPageState extends State<SignInPage> {
                     // ),
 
                     //NOTE_PASSWORD_INPUT
-                    CustomFormField(
+                    CustomFormFieldPassword(
                       title: 'Password',
-                      obscureText: true,
                       controller: passwordCtrl,
                     ),
 

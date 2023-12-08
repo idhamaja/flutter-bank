@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/pages/sign_up/signUp_Set_ProfilePage.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
+import 'package:flutter_bank/UI/widgets/formsPassword.dart';
 import 'package:flutter_bank/bloc/auth/authBloc.dart';
 import 'package:flutter_bank/bloc/auth/authEvent.dart';
 import 'package:flutter_bank/bloc/auth/authState.dart';
@@ -123,9 +124,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     const SizedBox(height: 16),
 
                     //NOTE_PASSWORD_INPUT
-                    CustomFormField(
+                    CustomFormFieldPassword(
                       title: 'Password',
-                      obscureText: true,
                       controller: passwordContrl,
                     ),
 

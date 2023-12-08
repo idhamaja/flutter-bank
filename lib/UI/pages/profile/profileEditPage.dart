@@ -1,10 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bank/UI/widgets/buttons.dart';
 import 'package:flutter_bank/UI/widgets/forms.dart';
+import 'package:flutter_bank/UI/widgets/formsPassword.dart';
+import 'package:flutter_bank/bloc/auth/authBloc.dart';
+import 'package:flutter_bank/bloc/auth/authState.dart';
 import 'package:flutter_bank/shared/themes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProfileEditPage extends StatelessWidget {
+class ProfileEditPage extends StatefulWidget {
   const ProfileEditPage({super.key});
+
+  @override
+  State<ProfileEditPage> createState() => _ProfileEditPageState();
+}
+
+class _ProfileEditPageState extends State<ProfileEditPage> {
+  final usernameCtrl = TextEditingController(text: '');
+  final nameCtrl = TextEditingController(text: '');
+  final emailCtrl = TextEditingController(text: '');
+  final passwordCtrl = TextEditingController(text: '');
+
+  @override
+  void initState() {
+    super.initState();
+    final authState = context.read<AuthBloc>().state;
+    if (authState is AuthSuccess) {
+      usernameCtrl.text = authState.user.username!;
+      nameCtrl.text = authState.user.name!;
+      emailCtrl.text = authState.user.email!;
+      passwordCtrl.text = authState.user.password!;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,30 +58,33 @@ class ProfileEditPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //NOTE_USERNAME_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Username',
+                  controller: usernameCtrl,
                 ),
 
                 const SizedBox(height: 16),
 
                 //NOTE_FULL_NAME_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Full Name',
+                  controller: nameCtrl,
                 ),
 
                 const SizedBox(height: 16),
 
                 //NOTE_EMAIL_INPUT
-                const CustomFormField(
+                CustomFormField(
                   title: 'Email Address',
+                  controller: emailCtrl,
                 ),
 
                 const SizedBox(height: 16),
 
                 //NOTE_PASSWORD_INPUT
-                const CustomFormField(
+                CustomFormFieldPassword(
                   title: 'Password',
-                  obscureText: true,
+                  controller: passwordCtrl,
                 ),
 
                 const SizedBox(height: 30),
