@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bank/models/editProfile/userEditFormModels.dart';
 import 'package:flutter_bank/models/signIn/signInFormModel.dart';
 import 'package:flutter_bank/models/signUp/signUpFormModel.dart';
 
@@ -35,3 +36,11 @@ class AuthLogin extends AuthEvent {
 }
 
 class AuthGetCurrentUser extends AuthEvent {}
+
+class AuthUpdateUser extends AuthEvent {
+  final UserEditFormModels data;
+  const AuthUpdateUser(this.data);
+
+  @override
+  List<Object> get props => [data];
+}
