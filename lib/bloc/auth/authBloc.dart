@@ -4,6 +4,7 @@ import 'package:flutter_bank/models/signIn/signInFormModel.dart';
 import 'package:flutter_bank/models/userModel.dart';
 import 'package:flutter_bank/services/authService.dart';
 import 'package:flutter_bank/services/userService.dart';
+import 'package:flutter_bank/services/walletService.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -89,6 +90,29 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             await UserService().updateUser(event.data);
 
             emit(AuthSuccess(updatedUser));
+          }
+        } catch (e) {
+          emit(AuthFailed(e.toString()));
+        }
+      }
+
+      //UPDATEPINUSER
+
+      if (event is AuthPinUpdate) {
+        try {
+          if (state is AuthSuccess) {
+            final updatedNewPin = (state as AuthSuccess).user.copyWith(
+                  pin: event.newPin,
+                );
+
+            emit(AuthLoading());
+
+            await WallerService().updatePin(
+              event.oldPin,
+              event.newPin,
+            );
+
+            emit(AuthSuccess(updatedNewPin));
           }
         } catch (e) {
           emit(AuthFailed(e.toString()));
