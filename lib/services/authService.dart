@@ -65,14 +65,40 @@ class AuthService {
 
       print(res.body);
 
-      //jika register berhasil
+      //jika login berhasil
       if (res.statusCode == 200) {
         UserModel user = UserModel.fromJson(jsonDecode(res.body));
         user = user.copyWith(password: data.password);
 
         await storeCredentialToLocal(user);
+        print('Login berhasil!');
 
         return user;
+      } else {
+        throw jsonDecode(res.body)['message'];
+      }
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  //Service for Logout
+  Future<void> logout() async {
+    try {
+      final token = await getToken();
+
+      final res = await http.post(
+        Uri.parse(
+          '$baseUrl/logout',
+        ),
+        headers: {
+          'Authorization': token,
+        },
+      );
+
+      if (res.statusCode == 200) {
+        await clearLocalStorage();
+        print('Berhasil logout');
       } else {
         throw jsonDecode(res.body)['message'];
       }

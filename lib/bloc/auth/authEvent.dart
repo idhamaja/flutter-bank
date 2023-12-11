@@ -60,3 +60,5 @@ class AuthPinUpdate extends AuthEvent {
         newPin,
       ];
 }
+
+class AuthLogout extends AuthEvent {}

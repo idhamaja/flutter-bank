@@ -97,7 +97,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       //UPDATEPINUSER
-
       if (event is AuthPinUpdate) {
         try {
           if (state is AuthSuccess) {
@@ -114,6 +113,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
             emit(AuthSuccess(updatedNewPin));
           }
+        } catch (e) {
+          emit(AuthFailed(e.toString()));
+        }
+      }
+
+      //BLoC for Logout
+      if (event is AuthLogout) {
+        try {
+          emit(AuthLoading());
+
+          await AuthService().logout();
+
+          emit(AuthInitial());
         } catch (e) {
           emit(AuthFailed(e.toString()));
         }
